@@ -1,0 +1,39 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+            <div class="card">
+                <div class="card-body text-center">
+                    <span class="titulo">Listado de productos</span>
+                    <button class="btn btn-success float-end" routerLink="/crear-producto">Nuevo</button>
+                    <table class="table table-striped mt-3">
+                        <thead>
+                            <th>producto</th>
+                            <th>categoria</th>
+                            <th>ubicacion</th>
+                            <th>precio</th>
+                            <th>acciones</th>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let producto of productos">
+                                <td>{{producto?.nombre}}</td>
+                                <td>{{producto?.categoria}}</td>
+                                <td>{{producto?.ubicacion}}</td>
+                                <td>{{producto?.precio}}</td>
+                                <td>
+                                    <div class="justify-content">
+                                        <button class="btn btn-space">
+                                            <mat-icon style="color: rgb(0, 2, 100);"[routerLink]="['/editar-producto',producto._id]" >edit</mat-icon>
+                                        </button>
+                                        <button class="btn btn-space" (click)="deleteProducto(producto)">
+                                            <mat-icon style="color:red" class>delete</mat-icon>
+                                        </button>                                        
+                                    </div>
+                                </td>
+                            </tr>                        
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
